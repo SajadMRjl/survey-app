@@ -1,0 +1,88 @@
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+    .form{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #12151a;
+        box-sizing: border-box;
+        width: 21rem;
+        min-height: 21.6875rem;
+        padding: 1rem 1.5rem 1.4rem;
+        border-radius: .25rem;
+        margin-top: 1.25rem;
+        gap: 1.7rem;
+
+        .title{
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            padding-bottom: 1rem;
+            color: #12151a;
+        }
+
+        .password-req{
+            margin-top: -20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+
+            .header{
+                font-weight: 400;
+                font-size: 0.75rem;
+                line-height: 1.66;
+                letter-spacing: 0.03333em;
+                text-align: right;
+                margin-bottom: 3px;
+            }
+            .req{
+                display: inline-flex;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            .error{
+                font-weight: 400;
+                font-size: 0.75rem;
+                line-height: 1.66;
+                letter-spacing: 0.03333em;
+                text-align: right;
+                margin-right: 5px;
+                margin-bottom: 0;
+                color: #d32f2f;
+            }
+
+            .success{
+                font-weight: 400;
+                font-size: 0.75rem;
+                line-height: 1.66;
+                letter-spacing: 0.03333em;
+                text-align: right;
+                margin-right: 5px;
+                margin-bottom: 0;
+                color: rgb(46, 125, 50);
+            }
+        }
+
+        .none{
+            display: none;
+        }
+
+    }
+
+    .login{
+    margin-top: 1.125rem;
+    font-size: 14px;
+    font-weight: 700;
+    display: inline-flex;
+    gap: 4px;
+    }
+}
