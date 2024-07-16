@@ -1,17 +1,18 @@
 import React from "react";
 import Register from "./components/Register";
 import Login from "./components/login";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import Dashboard from "./components/Dashboard";
+import { Routes, Route, HashRouter } from "react-router-dom"
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <Routes>
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/login" element={<Login />} />
+        <Route path="/" element={<Dashboard />} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 

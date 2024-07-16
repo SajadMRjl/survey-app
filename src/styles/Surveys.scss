@@ -1,0 +1,22 @@
+.survey-container{
+    
+    .survey-header{
+        padding: 1.5rem 3rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .survey-button{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            background: rgba(37, 43, 54, 0.75);
+
+            .nav-icon{
+                margin-left: .5rem;
+
+            }
+        }
+    }
+}

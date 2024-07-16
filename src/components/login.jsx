@@ -1,7 +1,16 @@
 import React, { useState } from "react";
-import { TextField, InputAdornment, IconButton, Button } from "@mui/material";
+import {
+  TextField,
+  InputAdornment,
+  IconButton,
+  Button,
+  CircularProgress,
+} from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 import "../styles/Register.scss";
 
 const textfieldstyle = {
@@ -33,19 +42,14 @@ const textfieldstyle = {
 };
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  const [sending, setSending] = useState(false);
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const validateEmail = (e) => {
-    setEmail(e.target.value);
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (emailRegex.test(email)) {
-      setEmailError(false);
-    } else {
-      setEmailError(true);
-    }
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
   };
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -56,24 +60,45 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    console.log("email: ", email);
-    console.log("password: ", password);
+    const api = axios.create({
+      withCredentials: false,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    });
+    setSending(true);
+    api
+      .post("users/login", { username, password })
+      .then((response) => {
+        if (response.status === 200) {
+          localStorage.setItem("access_token", response.data.access_token);
+          localStorage.setItem("token_type", response.data.token_type);
+          navigate("/");
+        }
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          toast.error("نام کاربری یا رمز اشتباه می باشد.");
+        } else {
+          toast.error("خطا در برقراری ارتباط با سرور");
+        }
+      })
+      .finally(() => {
+        setSending(false);
+      });
   };
 
   return (
     <div className="main">
+      <ToastContainer />
       <h1>لوگو</h1>
       <div className="form">
         <h3 className="title">ورود</h3>
         <TextField
           sx={textfieldstyle}
-          label="ایمیل"
+          label="نام کاربری"
           variant="outlined"
-          name="email"
-          value={email}
-          error={emailError}
-          helperText={emailError && "یک آدرس ایمیل معتبر وارد نمایید."}
-          onChange={validateEmail}
+          name="username"
+          value={username}
+          onChange={handleUsername}
         />
         <TextField
           label="رمز"
@@ -97,10 +122,10 @@ const Login = () => {
         <Button
           variant="contained"
           onClick={handleLogin}
-          disabled={emailError || password.length === 0}
+          disabled={username.length === 0 || password.length === 0}
           sx={{ height: "50px" }}
         >
-          ورود
+          {sending ? <CircularProgress size={24} /> : "ورود"}
         </Button>
       </div>
       <div className="login">
