@@ -19,4 +19,13 @@
             }
         }
     }
+
+    .survey-table{
+        margin: 1.5rem;
+        direction: rtl;
+
+        .MuiTableCell-root{
+            text-align: right;
+        }
+    }
 }

@@ -40,7 +40,8 @@ const AddSurvey = ({ open, handleClose }) => {
     const access_token = localStorage.getItem("access_token");
     const token_type = localStorage.getItem("token_type");
     const api = axios.create({
-      withCredentials: false,
+      withCredentials: true,
+
       headers: {
         "Content-Type": "application/json",
         Authorization: `${token_type} ${access_token}`,
@@ -63,6 +64,7 @@ const AddSurvey = ({ open, handleClose }) => {
       })
       .finally(() => {
         setSending(false);
+        handleClose();
       });
   };
 
@@ -115,6 +117,7 @@ const AddSurvey = ({ open, handleClose }) => {
           <IconButton
             className="close-button"
             sx={{ mr: "-15px", mb: "15px" }}
+            onClick={handleClose}
           >
             <CloseIcon />
           </IconButton>

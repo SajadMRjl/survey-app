@@ -3,6 +3,7 @@ import "../styles/Surveys.scss";
 import { Button } from "@mui/material";
 import { AddCircle } from "@mui/icons-material";
 import AddSurvey from "./AddSurvey";
+import SurveyList from "./SurveyList";
 
 const Surveys = () => {
   const [open, setOpen] = useState(false);
@@ -27,6 +28,9 @@ const Surveys = () => {
           <AddCircle className="nav-icon" />
           پرسشنامه جدید
         </Button>
+      </div>
+      <div className="survey-table">
+        <SurveyList />
       </div>
       <AddSurvey
         open={open}
