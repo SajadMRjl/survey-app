@@ -2,17 +2,16 @@ import React from "react";
 import Register from "./components/Register";
 import Login from "./components/login";
 import Dashboard from "./components/Dashboard";
-import { Routes, Route, HashRouter } from "react-router-dom"
-
-function App() {
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';function App() {
   return (
-    <HashRouter>
+    <Router>
       <Routes>
-        <Route path="/auth/register" element={<Register />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-    </HashRouter>
+    </Router>
   );
 }
 

@@ -115,6 +115,7 @@ const Register = () => {
 
   const handleSignup = () => {
     const api = axios.create({
+      // baseURL: "http://localhost:8000/",
       headers: { "Content-Type": "application/json" },
       withCredentials: false,
     });
@@ -127,7 +128,7 @@ const Register = () => {
           localStorage.setItem("token_type", response.data.token_type);
           toast.success("ثبت‌نام با موفقیت انجام شد.");
           setTimeout(() => {
-            navigate("/");
+            navigate("/dashboard");
           }, 2000);
         }
       })

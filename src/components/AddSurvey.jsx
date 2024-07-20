@@ -40,8 +40,8 @@ const AddSurvey = ({ open, handleClose }) => {
     const access_token = localStorage.getItem("access_token");
     const token_type = localStorage.getItem("token_type");
     const api = axios.create({
-      withCredentials: true,
-
+      withCredentials: false,
+      // baseURL: "http://localhost:8000/",
       headers: {
         "Content-Type": "application/json",
         Authorization: `${token_type} ${access_token}`,

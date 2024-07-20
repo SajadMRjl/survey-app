@@ -1,8 +1,6 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "survey-app/#/",
-  "proxy": "http://localhost:8000/",
   "private": true,
   "dependencies": {
     "@date-io/jalaali": "^3.1.0",

@@ -61,7 +61,10 @@ const Login = () => {
 
   const handleLogin = () => {
     const api = axios.create({
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      // baseURL: "http://localhost:8000/",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
       withCredentials: false,
     });
     setSending(true);
@@ -71,7 +74,7 @@ const Login = () => {
         if (response.status === 200) {
           localStorage.setItem("access_token", response.data.access_token);
           localStorage.setItem("token_type", response.data.token_type);
-          navigate("/");
+          navigate("/dashboard");
         }
       })
       .catch((error) => {

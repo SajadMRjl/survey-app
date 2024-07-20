@@ -41,6 +41,7 @@ const SurveyList = () => {
     const access_token = localStorage.getItem("access_token");
     const token_type = localStorage.getItem("token_type");
     const api = axios.create({
+      // baseURL: "http://localhost:8000/",
       withCredentials: false,
       headers: {
         "Content-Type": "application/json",
