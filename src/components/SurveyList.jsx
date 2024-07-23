@@ -116,7 +116,7 @@ const SurveyList = () => {
     });
 
     api
-      .post(`/surveys/${currentSurveyId}/add_question`, newQuestion)
+      .post(`api/surveys/${currentSurveyId}/add_question`, newQuestion)
       .then((response) => {
         if (response.status === 200) {
           toast.success("سوال با موفقیت اضافه شد.");
@@ -140,7 +140,7 @@ const SurveyList = () => {
     });
 
     api
-      .get(`/surveys/${surveyId}/list_questions`)
+      .get(`api/surveys/${surveyId}/list_questions`)
       .then((response) => {
         if (response.status === 200) {
           setQuestions(response.data);

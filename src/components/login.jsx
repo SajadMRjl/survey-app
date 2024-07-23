@@ -133,7 +133,7 @@ const Login = () => {
       </div>
       <div className="login">
         <div>حساب کاربری ندارید؟</div>
-        <Link to="/auth/register">ثبت نام کنید</Link>
+        <Link to="/register">ثبت نام کنید</Link>
       </div>
     </div>
   );
