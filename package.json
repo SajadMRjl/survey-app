@@ -2,7 +2,6 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000/",
   "dependencies": {
     "@date-io/jalaali": "^3.1.0",
     "@emotion/react": "^11.11.4",
@@ -14,7 +13,9 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
+    "express": "^4.19.2",
     "gh-pages": "^6.1.1",
+    "http-proxy-middleware": "^3.0.0",
     "jalali-moment": "^3.3.11",
     "moment-jalaali": "^0.9.6",
     "node-sass": "^9.0.0",
@@ -24,6 +25,7 @@
     "react-scripts": "^5.0.1",
     "react-toastify": "^10.0.5",
     "sass": "^1.77.7",
+    "serve": "^14.2.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

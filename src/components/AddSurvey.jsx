@@ -49,7 +49,7 @@ const AddSurvey = ({ open, handleClose }) => {
     });
     setSending(true);
     api
-      .post("/surveys/", surveyData)
+      .post("/api/surveys/", surveyData)
       .then((response) => {
         if (response.status === 200) {
           toast.success("پرسشنامه با موقثیت ساخته شد");

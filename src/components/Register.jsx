@@ -121,7 +121,7 @@ const Register = () => {
     });
     setSending(true);
     api
-      .post("users/register", { email, password, username })
+      .post("/api/users/register", { email, password, username })
       .then((response) => {
         if (response.status === 200) {
           localStorage.setItem("access_token", response.data.access_token);
