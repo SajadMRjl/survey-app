@@ -69,7 +69,7 @@ const Login = () => {
     });
     setSending(true);
     api
-      .post("users/login", { username, password })
+      .post("/api/users/login", { username, password })
       .then((response) => {
         if (response.status === 200) {
           localStorage.setItem("access_token", response.data.access_token);

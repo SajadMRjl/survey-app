@@ -50,7 +50,7 @@ const SurveyList = () => {
     });
 
     api
-      .get("/surveys/")
+      .get("/api/surveys/")
       .then((response) => {
         if (response.status === 200) {
           setSurveys(response.data);
